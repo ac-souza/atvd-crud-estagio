@@ -3,23 +3,23 @@
         <div class="col mt-5">
             <h1>Listar Usuários</h1>
             <?php
-            $sql = "SELECT * FROM usuario"; // Cria uma consulta SQL para selecionar todos
-            
+            $sql = "SELECT * FROM usuario";
+
             $res = $conn->query($sql);
 
-            $qtd = $res->num_rows; // Obtém o número de linhas retornadas pela consulta SQL
+            $qtd = $res->num_rows;
 
             if ($qtd > 0) {
-                print "<table class='table table-striped table-hover table-bordered'>"; // Cria uma tabela com classes do Bootstrap para estilização
+                print "<table class='table table-striped table-hover table-bordered'>";
                 print "<tr>";
-                    print "<tr>";
-                    print "<th>#</th>";
-                    print "<th>Nome</th>";
-                    print "<th>Email</th>";
-                    print "<th>Data de Nascimento</th>";
-                    print "<th>Acões</th>";
-                    print "</tr>";
-                while ($row =$res->fetch_object())  { // Itera sobre cada linha retornada pela consulta SQL
+                print "<tr>";
+                print "<th>#</th>";
+                print "<th>Nome</th>";
+                print "<th>Email</th>";
+                print "<th>Data de Nascimento</th>";
+                print "<th>Acões</th>";
+                print "</tr>";
+                while ($row = $res->fetch_object()) {
                     print "<tr>";
                     print "<td>" . $row->id . "</td>";
                     print "<td>" . $row->nome . "</td>";
@@ -34,9 +34,9 @@
                     print "</tr>";
                 }
                 print "</table>";
-                }else {
-                print "<p class='alert alert-danger'>Não encontrou resultados!</p>"; // Exibe uma mensagem de alerta caso não haja resultados
-                } 
+            } else {
+                print "<p class='alert alert-danger'>Não encontrou resultados!</p>";
+            }
             ?>
 
 

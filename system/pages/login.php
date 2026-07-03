@@ -1,116 +1,147 @@
-<!DOCTYPE html> <!-- Declaração do tipo de documento HTML5 -->
-<html lang="pt-BR"> <!-- Define o idioma da página como português do Brasil -->
+<!DOCTYPE html>
+<html lang="pt-br">
 
 <head>
-    <meta charset="utf-8"> <!-- Define a codificação de caracteres como UTF-8 para suportar caracteres especiais -->
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Define a largura da viewport para o tamanho do dispositivo e a escala inicial como 1, garantindo que o site seja responsivo -->
-    <title>Login de Usuário</title> <!-- Define o título da página como "Login de Usuário" -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"> <!-- Link para o arquivo CSS do Bootstrap, que fornece estilos e componentes prontos para a página web -->
-    <link rel="icon" type="image" href="https://em-content.zobj.net/source/google/439/automobile_1f697.png"> <!-- Define o ícone da página como uma imagem de um arquivo PNG localizado no caminho especificado -->
+    <title>SisVeículos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image" href="../assets/img/car_list.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <style>
-        body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        position: relative; /* Necessário para posicionar o fundo embaçado */
-    }
+        .navbar .dropdown-menu {
+            min-width: 320px;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
 
-    /* Camada fantasma para a imagem de fundo */
-        body::before {
-        content: "";
-        position: fixed; /* Mantém o fundo fixo ao rolar a página */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        
-        /* Substitua pelo caminho ou URL da sua imagem */
-        background-image: url('https://radioclube.dol.com.br/wp-content/uploads/2024/01/Design-sem-nome-27_00843631_0_-scgHdR.jpeg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        
-        /* O SEGREDO DO EMBAÇADO: */
-        filter: blur(8px); /* Quanto maior o número, mais embaçado fica */
-        
-        z-index: -1; /* Joga a imagem para trás de absolutamente tudo */
-        transform: scale(1.1); /* Evita que as bordas da tela fiquem brancas por causa do blur */
-    }
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #loginFormElement button[type="submit"] {
+            width: 100%;
+            padding: 0.6rem;
+            background-color: #212529;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .password-toggle-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #6c757d;
+            z-index: 10;
+            /* Garante que o botão fique na frente do input */
+        }
     </style>
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #3294D2;" data-bs-theme="light">
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">CRUD Inc.</a> <!-- Cria um link de marcação na barra de navegação com o texto "Cadastro de Usuários" -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand d-inline-flex align-items-center" href="#">
+                <img src="../assets/img/car_list.png" alt="Logo" style="width:50px; margin-right: 10px;" class="rounded-pill">
+                <span class="fs-4">SisVeículos</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item" style="margin-right: 10px;">
-                        <a class="btn btn-outline-dark" href="?page=new_user">Criar Usuário</a> <!-- Cria um link na barra de navegação com o texto "Novo Usuário" -->
-                    </li>
-                    <li class="nav-item" style="margin-right: 10px;">
-                        <a class="btn btn-outline-dark" href="?page=user_list">Listar Usuários</a> <!-- Cria um link na barra de navegação com o texto "Listar Usuários" -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle d-inline-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside">
+                            <i class="material-icons">person</i> Minha Conta
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <div class="tnb-login-dropdown-form-container" id="tnb-login-dropdown-loginForm">
+                                <div class="auth-header">
+                                    <div class="auth-title" style="font-weight: bold; font-size: 1.2rem;">Entrar</div>
+                                    <div class="auth-subtitle" style="font-size: 0.85rem; color: #6c757d; margin-bottom: 10px;">Acesse sua conta e gerencie seus veículos</div>
+                                </div>
+
+                                <p class="switch-form" style="font-size: 0.9rem;">
+                                    Não tem uma conta? <a id="tnb-login-dropdown-signup-link" href="#" style="color: #0d6efd; text-decoration: none;">Cadastre-se</a>
+                                </p>
+
+                                <form id="loginFormElement">
+                                    <div class="form-group">
+                                        <input type="email" id="tnb-login-dropdown-email" autocomplete="email" spellcheck="false" autocapitalize="off" placeholder="Email" required>
+                                    </div>
+
+                                    <div class="form-group tnb-login-dropdown-password-container">
+                                        <div style="position: relative;">
+                                            <input type="password" id="tnb-login-dropdown-password" autocomplete="current-password" placeholder="Senha" required style="padding-right: 40px;">
+                                            <button type="button" id="togglePassword" class="password-toggle-btn">
+                                                <i class="material-icons" style="font-size: 20px;">visibility_off</i>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="forgot-password" id="tnb-login-dropdown-reset-password" style="font-size: 0.85rem; margin-bottom: 15px; cursor: pointer; color: #6c757d;">
+                                        Esqueceu sua senha?
+                                    </div>
+
+                                    <div id="loginStatus" class="status"></div>
+                                    <button type="submit">
+                                        <span class="button-text">Entrar</span>
+                                        <span class="button-loader"></span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="container"> <!-- Cria um contêiner para centralizar o conteúdo da página -->
-        <div class="row"> <!-- Cria uma linha para organizar o conteúdo em colunas -->
-            <div class="col mt-5 card-conteudo"> <!-- Cria uma coluna com margem superior de 5 unidades para adicionar espaçamento -->
-                <?php
-                // Usamos require_once aqui porque o arquivo de configuração só precisa (e deve) ser carregado uma vez.
-                require_once("../includes/config.php"); 
-
-                switch (@$_REQUEST['page']) { 
-                    case "new_user":
-                        require("signup.php");
-                        break;
-                    case "listar":
-                        require("listar_usuarios.php");
-                        break;
-                    case "salvar":
-                        require("salvar_usuarios.php");
-                        break;
-                    case "editar":
-                        require("editar_usuarios.php");
-                        break;
-                    default:
-                        echo "<h1>Bem vindos ao teste de sistema CRUD!</h1>";
-                        break;
-                }
-                ?>
-            </div>
-        </div>
+    <div class="container-fluid mt-3 text-center">
+        <h3>Bem-vindo ao SisVeículos</h3>
     </div>
 
-    <script src=https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js></script> <!-- Link para o arquivo JavaScript do Bootstrap, que fornece funcionalidades interativas para a página web -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+        document.getElementById('togglePassword').addEventListener('click', function(event) {
+            // 1. Evita que o botão tente dar "submit" no formulário ou fechar coisas indesejadas
+            event.preventDefault();
+            event.stopPropagation();
+
+            const passwordInput = document.getElementById('tnb-login-dropdown-password');
+            // 2. Buscamos o ícone diretamente pelo ID ou pela tag de forma segura, usando 'this' (o botão)
+            const icon = this.querySelector('i');
+
+            if (passwordInput && icon) {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    icon.textContent = 'visibility';
+                } else {
+                    passwordInput.type = 'password';
+                    icon.textContent = 'visibility_off';
+                }
+            }
+        });
+
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        dropdownMenu.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    </script>
 </body>
 
 </html>
-
-<style>
-    .container {
-    display: flex;
-    flex-direction: column; /* Empilha os inputs e mensagens */
-    align-items: center;    /* Centraliza tudo horizontalmente */
-    gap: 15px;              /* Cria um espaçamento vertical maneiro entre os elementos */
-    
-    width: 100%;            /* Opcional: garante que o container ocupe a largura da tela */
-    margin-top: 50px;       /* Opcional: desgruda o topo da tela */
-    transform: translateY(-50px); /* Valores negativos sobem o elemento. Ajuste o número como preferir! */
-  }
-
-    .card-conteudo {
-    background-color: rgba(255, 255, 255, 0.85); /* Fundo branco com 85% de opacidade */
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra suave para dar profundidade */
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-</style>
