@@ -9,27 +9,10 @@
     <link href="../assets/vendor/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/login.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
 </head>
 
 <body>
-    <div id="backgroundCarousel" class="carousel slide carousel-fade bg-carousel position-fixed top-0 start-0 w-100 h-100" data-bs-ride="carousel" data-bs-interval="10000" data-bs-pause="false">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../assets/img/car_background_black.png" alt="Fundo 1">
-            </div>
-            <div class="carousel-item">
-                <img src="../assets/img/car_background_2.png" alt="Fundo 2">
-            </div>
-        </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#backgroundCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#backgroundCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button>
-    </div>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand d-inline-flex align-items-center" href="#">
@@ -89,9 +72,26 @@
         </div>
     </nav>
 
+    <div id="backgroundCarousel" class="carousel slide carousel-fade bg-carousel" data-bs-ride="carousel" data-bs-interval="10000" data-bs-pause="false">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../assets/img/car_lightoff_background.png" alt="Fundo 1">
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/img/car_lightson_background.png" alt="Fundo 2">
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#backgroundCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#backgroundCarousel" data-bs-slide="prev">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
     <script src="../assets/vendor/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/login.js"></script>
 
 </body>
-
 </html>

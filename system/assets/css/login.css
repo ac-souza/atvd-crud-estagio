@@ -1,65 +1,69 @@
-        .navbar .dropdown-menu {
-            min-width: 320px;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
+.navbar .dropdown-menu {
+    min-width: 320px;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 
-        .form-group input {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
-        #loginFormElement button[type="submit"] {
-            width: 100%;
-            padding: 0.6rem;
-            background-color: #212529;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+#loginFormElement button[type="submit"] {
+    width: 100%;
+    padding: 0.6rem;
+    background-color: #212529;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-        .tnb-login-dropdown-password-container input {
-            margin-bottom: 0;
-        }
+.tnb-login-dropdown-password-container input {
+    margin-bottom: 0;
+}
 
-        .password-toggle-btn {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: #6c757d;
-            z-index: 10;
-            padding: 0;
-            height: auto;
-        }
-        .bg-carousel {
-            position: fixed !important;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            overflow: hidden;
-        }
+.password-toggle-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #6c757d;
+    z-index: 10;
+    padding: 0;
+    height: auto;
+}
 
-        .bg-carousel .carousel-inner,
-        .bg-carousel .carousel-item {
-            height: 100% !important;
-        }
+/* MODIFICADO: Ajuste do Carrossel de fundo */
+.bg-carousel {
+    position: fixed !important;
+    top: 75px; /* Empurra o carrossel para baixo da altura padrão da navbar */
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 75px); /* Ocupa a tela inteira menos o tamanho da navbar */
+    z-index: -1;
+    overflow: hidden;
+}
 
-        .bg-carousel img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important; 
-        }
+.bg-carousel .carousel-inner,
+.bg-carousel .carousel-item {
+    height: 100% !important;
+}
 
-        body {
-            background: transparent !important;
-        }
+.bg-carousel img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
+}
+
+body {
+    background-color: #000 !important; /* Caso a imagem suma na transição, fica preto no fundo */
+    margin: 0;
+    padding: 0;
+}
