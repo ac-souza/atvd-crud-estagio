@@ -1,108 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    
-    <head>
-        <title>SisVeículos</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="icon" type="image" href="../assets/img/car_list.png">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        .navbar .dropdown-menu {
-            min-width: 320px;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
 
-        .form-group input {
-            width: 100%;
-            padding: 0.5rem;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        #loginFormElement button[type="submit"] {
-            width: 100%;
-            padding: 0.6rem;
-            background-color: #212529;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        /* Remove a margem de baixo do input de dentro do container da senha, 
-   já que o container agora cuidará do espaçamento */
-        .tnb-login-dropdown-password-container input {
-            margin-bottom: 0;
-        }
-
-        /* Garante que o botão fique perfeitamente centralizado verticalmente */
-        .password-toggle-btn {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: #6c757d;
-            z-index: 10;
-            padding: 0; /* Remove paddings fantasmas do botão */
-            height: auto;
-        }
-        /* Container do Carrossel de Fundo */
-        .bg-carousel {
-            position: fixed !important; /* O !important garante que o Bootstrap não mude o comportamento */
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1; /* Força o carrossel a ficar atrás de tudo */
-            overflow: hidden;
-        }
-
-        .bg-carousel .carousel-inner,
-        .bg-carousel .carousel-item {
-            height: 100% !important;
-        }
-
-        /* Força as imagens a cobrirem a tela cheia */
-        .bg-carousel img {
-            width: 100% !important;
-            height: 100% !important;
-            object-fit: cover !important; 
-        }
-
-        /* Remove qualquer cor de fundo sólida do body que possa tapar o carrossel */
-        body {
-            background: transparent !important;
-        }
-    </style>
+<head>
+    <title>SisVeículos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image" href="../assets/img/car_list.png">
+    <link href="../assets/vendor/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 </head>
 
 <body>
     <div id="backgroundCarousel" class="carousel slide carousel-fade bg-carousel position-fixed top-0 start-0 w-100 h-100" data-bs-ride="carousel" data-bs-interval="10000" data-bs-pause="false">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="../assets/img/car_background_black.png" alt="Fundo 1">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../assets/img/car_background_black.png" alt="Fundo 1">
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/img/car_background_2.png" alt="Fundo 2">
+            </div>
         </div>
-        <div class="carousel-item">
-            <img src="../assets/img/car_background_2.png" alt="Fundo 2">
-        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#backgroundCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#backgroundCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
     </div>
-    
-    <button class="carousel-control-prev" type="button" data-bs-target="#backgroundCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#backgroundCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
-</div>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand d-inline-flex align-items-center" href="#">
@@ -136,18 +63,17 @@
                                     </div>
 
                                     <div class="form-group tnb-login-dropdown-password-container mb-3" style="position: relative;">
-                                    <input 
-                                        type="password" 
-                                        id="tnb-login-dropdown-password" 
-                                        autocomplete="current-password" 
-                                        placeholder="Senha" 
-                                        required 
-                                        style="padding-right: 40px;"
-                                    >
-                                    <button type="button" id="togglePassword" class="password-toggle-btn">
-                                        <i class="material-icons" style="font-size: 20px; display: block;">visibility_off</i>
-                                    </button>
-                                </div>
+                                        <input
+                                            type="password"
+                                            id="tnb-login-dropdown-password"
+                                            autocomplete="current-password"
+                                            placeholder="Senha"
+                                            required
+                                            style="padding-right: 40px;">
+                                        <button type="button" id="togglePassword" class="password-toggle-btn">
+                                            <i class="material-icons" style="font-size: 20px; display: block;">visibility_off</i>
+                                        </button>
+                                    </div>
 
                                     <div id="loginStatus" class="status"></div>
                                     <button type="submit">
@@ -163,32 +89,9 @@
         </div>
     </nav>
 
-        <script>
-        document.getElementById('togglePassword').addEventListener('mousedown', function (event) {
-        // ISSO É CRUCIAL: Impede que o cursor "|" saia do input de senha
-        event.preventDefault(); 
-        event.stopPropagation();
+    <script src="../assets/vendor/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/login.js"></script>
 
-        const passwordInput = document.getElementById('tnb-login-dropdown-password');
-        const icon = this.querySelector('i');
-
-        if (passwordInput && icon) {
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                icon.textContent = 'visibility';
-            } else {
-                passwordInput.type = 'password';
-                icon.textContent = 'visibility_off';
-            }
-        }
-    });
-
-        const dropdownMenu = document.querySelector('.dropdown-menu');
-
-        dropdownMenu.addEventListener('click', function(event) {
-            event.stopPropagation();
-        });
-    </script>
 </body>
 
 </html>
