@@ -5,23 +5,20 @@
   <title>Cadastro</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image" href="../assets/img/car_list.png">
-  <link href="../assets/vendor/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/signup.css">
+  <link rel="icon" type="image" href="../../assets/img/car_list.png">
+  <link href="../../assets/vendor/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/signup.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
-  
+
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand d-inline-flex align-items-center" href="#">
-        <img src="../assets/img/car_list.png" alt="Logo" style="width:50px; margin-right: 10px;" class="rounded-pill">
+        <img src="../../assets/img/car_list.png" alt="Logo" style="width:50px; margin-right: 10px;" class="rounded-pill">
         <span class="fs-4">SisVeículos</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
     </div>
   </nav>
 
@@ -75,8 +72,13 @@
               </button>
             </form>
           </div>
-        </div> </div> </div> </div> <script src="../assets/vendor/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/signup.js"></script>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../../assets/vendor/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/signup.js"></script>
 
 </body>
+
 </html>
