@@ -16,7 +16,7 @@
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand d-inline-flex align-items-center" href="#">
-                <img src="../../assets/img/car_list.png" alt="Logo" style="width:50px; margin-right: 10px;" class="rounded-pill">
+                <img class="navbar-logo"></img>
                 <span class="fs-4">SisVeículos</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">

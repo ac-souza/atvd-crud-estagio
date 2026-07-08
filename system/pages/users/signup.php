@@ -33,7 +33,7 @@
           <div class="card p-4">
             <h2 class="card-title">Cadastro seu usuário SisVeículos</h2>
 
-            <form id="signupFormElement">
+            <form action="../../functions/config_users.php" method="POST" id="signupFormElement">
               <div class="form-group">
                 <input
                   type="text"
