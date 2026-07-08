@@ -12,7 +12,11 @@
 </head>
 
 <body>
-
+  <style>
+    body {
+      overflow: hidden !important;
+    }
+    </style>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
       <a class="navbar-brand d-inline-flex align-items-center" href="#">
@@ -23,7 +27,6 @@
   </nav>
 
   <div class="main-content">
-
     <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-md-6">
@@ -33,7 +36,7 @@
             <form id="signupFormElement">
               <div class="form-group">
                 <input
-                  type="name"
+                  type="text"
                   id="tnb-signup-username"
                   autocomplete="username"
                   spellcheck="false"

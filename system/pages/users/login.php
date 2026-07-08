@@ -42,7 +42,14 @@
 
                                 <form id="loginFormElement">
                                     <div class="form-group mb-3">
-                                        <input type="email" id="tnb-login-dropdown-email" autocomplete="email" spellcheck="false" autocapitalize="off" placeholder="Email" required>
+                                        <input 
+                                            type="email" 
+                                            id="tnb-login-dropdown-email" 
+                                            autocomplete="email" 
+                                            spellcheck="false" 
+                                            autocapitalize="off" 
+                                            placeholder="Email" 
+                                            required>
                                     </div>
 
                                     <div class="form-group tnb-login-dropdown-password-container mb-3" style="position: relative;">
@@ -75,10 +82,10 @@
     <div id="backgroundCarousel" class="carousel slide carousel-fade bg-carousel" data-bs-ride="carousel" data-bs-interval="10000" data-bs-pause="false">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../../assets/img/car_lightoff_background.png" alt="Fundo 1">
+                <img src="../../assets/img/vehicle_lightoff_background.png" alt="Fundo 1">
             </div>
             <div class="carousel-item">
-                <img src="../../assets/img/car_lightson_background.png" alt="Fundo 2">
+                <img src="../../assets/img/vehicle_lightson_background.png" alt="Fundo 2">
             </div>
         </div>
 

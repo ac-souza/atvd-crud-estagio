@@ -1,4 +1,3 @@
-
 body {
     margin: 0;
     padding: 0;
@@ -6,14 +5,14 @@ body {
     position: relative;
     background-color: #000;
     /* Fundo preto caso a imagem demore a carregar */
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 body {
     margin: 0;
     padding: 0;
     background-color: #000;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 /* 1. Tornamos a área de conteúdo o ponto de referência */
@@ -35,21 +34,101 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../img/damascus-blackandwhite-background.png');
+    background-image: url('../img/home_background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    filter: blur(8px);
     z-index: -1;
     transform: scale(1.05);
     /* Mantém a correção das bordas brancas do blur */
 }
 
-/* O card de cadastro */
+/* O card de conteúdo */
 .card {
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(5px);
     border: none;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo base para todos os botões grandes */
+.menu-card {
+    height: 120px;
+    /* Define a altura do botão grande */
+    border-radius: 12px;
+    /* Cantos arredondados modernos */
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+/* Camada escura por cima da foto para dar leitura ao texto branco */
+/* Camada por cima da foto que gera o escurecimento e o BLUR */
+.menu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    
+    /* Um fundo escuro sutil para ajudar no contraste */
+    background: rgba(0, 0, 0, 0.4); 
+    
+    /* A mágica do Blur acontece aqui: */
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(4px); /* Garante compatibilidade com Safari/iOS */
+    
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.menu-card:hover::before {
+    /* Reduz o desfoque e a escuridão no hover, revelando mais a foto */
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+}
+
+/* Ícones e Textos dentro do botão */
+.menu-card .material-icons {
+    font-size: 2rem;
+    /* Ícone maior */
+}
+
+.menu-card span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+/* --- ADICIONE SUAS IMAGENS AQUI --- */
+.btn-usuarios {
+    background-image: url('../img/icon_card.png');
+}
+
+.btn-veiculos {
+    background-image: url('../img/icon_airportshuttle.png');
+}
+
+.btn-modelos {
+    background-image: url('../img/icon_abc.png');
+}
+
+.sidebar-customizada {
+    background-color: #212529 !important; /* Substitua pelo Hexadecimal da cor que você quiser */
+    color: #ffffff; /* Garante que textos soltos fiquem brancos */
+}
+
+/* Opcional: Se o cabeçalho da sua sidebar tiver uma linha separadora ou fechar escuro */
+.sidebar-customizada .offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Opcional: Garante que o botão de fechar (X) fique visível no fundo escuro */
+.sidebar-customizada .btn-close {
+    filter: invert(1) grayscale(1) brightness(2);
 }

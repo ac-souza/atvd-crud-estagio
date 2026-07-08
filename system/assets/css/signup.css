@@ -51,15 +51,12 @@
             min-height: 100vh;
             position: relative;
             background-color: #000;
-            /* Fundo preto caso a imagem demore a carregar */
-            overflow-x: hidden;
         }
 
         body {
             margin: 0;
             padding: 0;
             background-color: #000;
-            overflow-x: hidden;
         }
 
         /* 1. Tornamos a área de conteúdo o ponto de referência */
