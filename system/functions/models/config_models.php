@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col mt-5">
-            <h1>Listar Usuários</h1>
+            <h1>Listar Modelos</h1>
             <?php
-            $sql = "SELECT * FROM usuarios"; // Cria uma consulta SQL para selecionar todos
+            $sql = "SELECT * FROM modelos"; // Cria uma consulta SQL para selecionar todos
 
             $res = $conn->query($sql);
 
@@ -12,21 +12,16 @@
             if ($qtd > 0) {
                 print "<table class='table table-striped table-hover table-bordered'>"; // Cria uma tabela com classes do Bootstrap para estilização
                 print "<tr>";
-                print "<tr>";
                 print "<th>#</th>";
-                print "<th>Nome</th>";
-                print "<th>Login</th>";
-                print "<th>Email</th>";
-                print "<th>Status</th>";
+                print "<th>Modelo</th>";
+                print "<th>Marca</th>";
                 print "<th>Acões</th>";
                 print "</tr>";
                 while ($row = $res->fetch_object()) { // Itera sobre cada linha retornada pela consulta SQL
                     print "<tr>";
                     print "<td>" . $row->id . "</td>";
-                    print "<td>" . $row->nome . "</td>";
-                    print "<td>" . $row->login . "</td>";
-                    print "<td>" . $row->email . "</td>";
-                    print "<td>" . $row->status . "</td>";
+                    print "<td>" . $row->marca . "</td>";
+                    print "<td>" . $row->modelo . "</td>";
                     print "<td>
                         <button onclick=\"location.href='?aba=editar&id=" . $row->id . "'\" class='btn
                             btn-success'>Editar</button>

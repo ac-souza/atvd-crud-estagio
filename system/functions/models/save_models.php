@@ -1,21 +1,19 @@
 <?php
-switch ($_REQUEST["acao"]) {
-    case 'cadastrar':
-        $nome = $_POST["nome"];
-        $email = $_POST["email"];
-        $senha = $_POST["senha"];
-        $data_nasc = $_POST["data_nasc"];
+switch ($_REQUEST["action"]) {
+    case 'register':
+        $modelo = $_POST["modelo"];
+        $marca = $_POST["marca"];
 
-        $sql = "INSERT INTO usuario (nome, email, senha, data_nasc) VALUES ('$nome', '$email', '$senha', '$data_nasc')";
+        $sql = "INSERT INTO modelos (modelo, marca) VALUES ('$modelo', '$marca')";
 
         $res = $conn->query($sql);
 
         if ($res == true) {
-            print "<script>alert('Usuário cadastrado com sucesso!');</script>";
-            print "<script>location.href='?aba=listar';</script>";
+            print "<script>alert('Modelo cadastrado com sucesso!');</script>";
+            print "<script>location.href='?page=home&aba=config_models';</script>";
         } else {
-            print "<script>alert('Não foi possível cadastrar o usuário!');</script>";
-            print "<script>location.href='?aba=listar';</script>";
+            print "<script>alert('Não foi possível cadastrar o modelo!');</script>";
+            print "<script>location.href='?aba=config_models';</script>";
         }
         break;
     case 'editar':

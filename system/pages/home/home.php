@@ -56,7 +56,7 @@
         <div class="container-fluid">
             <a class="navbar-brand d-inline-flex align-items-center" href="index.php?page=home">
 
-                <span class="navbar-logo"></span>
+                <img class="navbar-logo"></img>
 
                 <span class="fs-4">SisVeículos</span>
             </a>
@@ -68,6 +68,26 @@
     </nav>
 
     <div class="main-content">
+        <?php
+        // Captura a aba atual da URL
+    $aba_atual = $_GET['aba'] ?? 'bem_vindo';
+
+    // Define as configurações de cada botão baseado na aba, mantendo a rota da home e adicionando a tela correspondente
+    $botoes = [
+        'config_models'  => ['texto' => 'Cadastrar Modelo',  'url' => '?page=home&aba=model-signup',  'classe' => 'btn-primary'],
+        'config_users'   => ['texto' => 'Novo Usuário',      'url' => '?page=home&aba=user_signup',   'classe' => 'btn-success'],
+        'config_vehicle' => ['texto' => 'Adicionar Veículo', 'url' => '?page=home&aba=vehicle_signup', 'classe' => 'btn-warning']
+    ];
+
+    // Se a aba atual estiver no array, renderiza o botão correspondente
+    if (array_key_exists($aba_atual, $botoes)) {
+        $btn = $botoes[$aba_atual];
+        echo '
+        <div class="d-flex justify-content-end p-3">
+            <button class="btn ' . $btn['classe'] . '" onclick="location.href=\'' . $btn['url'] . '\'">' . $btn['texto'] . '</button>
+        </div>';
+    }
+        ?>
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
@@ -92,16 +112,44 @@
                             // Exemplo caso queira colocar uma IMAGEM diferente para a tela de veículos
                             // echo '<style>body { background-image: url("../../assets/img/fundo-veiculos.png") !important; background-size: cover; }</style>';
 
-                            echo '<style>body { background: #f8f9fa !important; }</style>';
+                            echo '<style>
+                            body, .fundo, .main-content { 
+                            background-color: #f8f9fa !important; 
+                            background-image: none !important; 
+                            }
+                            </style>';
+
                             require "../functions/vehicle/config_vehicle.php";
                             break;
 
                         case 'config_models':
                             // Fundo com cor sólida diferente
-                            echo '<style>body { background: #ffffff !important; }</style>';
+                            echo '<style>
+                            body, .fundo, .main-content { 
+                            background-color: #f8f9fa !important; 
+                            background-image: none !important; 
+                            }
+                            </style>';
                             require "../functions/models/config_models.php";
                             break;
+                        
+                        case 'model-signup':
+                            echo '<style>
+                            body, .fundo, .main-content { 
+                            background-color: #f8f9fa !important; 
+                            background-image: none !important; 
+                            }
+                            </style>';
+                            require "../pages/car-model/model-signup.php";
+                            break;
 
+                        case 'create_user':
+                            require "../pages/users/users_signup.php";
+                            break;
+                            
+                        case 'vehicle_signup':
+                            require "../pages/vehicle/vehicle_signup.php";
+                            break;
                         case 'bem_vindo':
                         default:
                             // MENSAGENS REMOVIDAS: 

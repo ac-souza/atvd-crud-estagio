@@ -25,7 +25,7 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
     }
 
     if ($pagina === 'home') {
-        foreach (['cad-user', 'cad-model', 'cad-vei'] as $extra) {
+        foreach (['create-user', 'model-signup', 'vehicle-signup'] as $extra) {
             if (file_exists("../assets/css/$extra.css")) {
                 echo '<link rel="stylesheet" href="../assets/css/' . $extra . '.css">';
             }
@@ -56,16 +56,20 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
             require "../pages/users/users_signup.php";
             break;
 
-        case 'model_signup':
-            require "../pages/cad-model/model_signup.php";
+        case 'model-signup':
+            require "../pages/car-model/model-signup.php";
             break;
 
-        case 'signup-vehicles':
-            require "../pages/cad-veiculo/vehicle_signup.php";
+        case 'vehicle_signup':
+            require "../pages/vehicle/vehicle_signup.php";
             break;
 
         case 'save_users':
             require "../functions/users/save_users.php";
+            break;
+
+        case 'save_models':
+            require "../functions/models/save_models.php";
             break;
 
 

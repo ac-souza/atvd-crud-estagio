@@ -16,70 +16,33 @@
       overflow: hidden !important;
     }
   </style>
-
-  <?php
-// Garante a conexão com o banco de dados
-require_once "../functions/connection.php";
-
-// Busca os modelos cadastrados utilizando o MySQLi
-$sql_modelos = "SELECT id, nome_modelo FROM modelos ORDER BY nome_modelo ASC";
-$resultado = $conn->query($sql_modelos);
-
-$lista_modelos = [];
-if ($resultado && $resultado->num_rows > 0) {
-    // Transforma o resultado em um array associativo
-    while ($linha = $resultado->fetch_assoc()) {
-        $lista_modelos[] = $linha;
-    }
-}
-?>
   <div class="main-content">
     <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="card p-4">
-            <h2 class="card-title">Cadastre seu veículo</h2>
+            <h2 class="card-title">Cadastre o modelo do veículo</h2>
 
-            <form action="?page=save_vehicles" method="post" id="signupFormElement">
+            <form action="?page=save_models" method="post" id="signupFormElement">
               <input type="hidden" name="action" value="register">
               <div class="form-group">
-                  <label>Placa</label>
+                <div class="form-group">
+                  <label>Marca</label>
                   <input
                   type="text"
-                  name="placa" id="tnb-signup-plate"
+                  name="marca" id="tnb-signup-brand"
                   spellcheck="false"
                   autocapitalize="off"
-                  placeholder="Ex.: ABC-1B34 ou ABC-1234"
+                  placeholder="Ex.: Volkswagen"
                   required>
                 </div>
-                <div class="form-group">
-                <label>Cor</label>
-                <input
-                  type="text"
-                  name="cor" id="tnb-signup-color"
-                  spellcheck="false"
-                  autocapitalize="off"
-                  placeholder="Ex.: Azul-Goiaba"
-                  required>
-              </div>
-              <div class="form-group">
-                <label>Ano</label>
-                <input
-                  type="number"
-                  name="ano" id="tnb-signup-year"
-                  spellcheck="false"
-                  autocapitalize="off"
-                  placeholder="Ex.: 1970"
-                  required>
-              </div>
-              <div class="form-group">
                 <label>Modelo</label>
                 <input
                   type="text"
-                  name="ano" id="tnb-signup-year"
+                  name="modelo" id="tnb-signup-model"
                   spellcheck="false"
                   autocapitalize="off"
-                  placeholder="Ex.: 1970"
+                  placeholder="Ex.: Golf GTI"
                   required>
               </div>
               <div id="signupStatus" class="status"></div>

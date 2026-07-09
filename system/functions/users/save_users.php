@@ -27,7 +27,7 @@ switch ($_REQUEST["action"]) {
         $senha = $_POST["senha"];
         $login = $_POST["login"];
 
-        $sql = "UPDATE usuario SET nome='{$nome}', 
+        $sql = "UPDATE usuarios SET nome='{$nome}', 
                     email='{$email}', 
                     senha='{$senha}', 
                     login='{$login}' 
@@ -45,7 +45,7 @@ switch ($_REQUEST["action"]) {
         break;
     case 'excluir':
 
-        $sql = "DELETE FROM usuario WHERE id=" . $_REQUEST["id"];
+        $sql = "DELETE FROM usuarios WHERE id=" . $_REQUEST["id"];
 
         $res = $conn->query($sql);
 
