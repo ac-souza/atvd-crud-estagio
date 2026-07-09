@@ -1,3 +1,16 @@
+.navbar-logo {
+    display: inline-block;
+    width: 50px;
+    height: 50px; /* Define a altura para a imagem aparecer */
+    margin-right: 10px;
+    border-radius: 50rem; /* Equivalente ao rounded-pill do Bootstrap */
+    
+    /* Configuração da imagem de fundo */
+    background-image: url("../img/car_list.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 body {
     margin: 0;
     padding: 0;

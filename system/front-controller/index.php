@@ -3,6 +3,10 @@ session_start();
 require_once "../functions/connection.php";
 
 $pagina = $_GET['page'] ?? 'login';
+if ($pagina === 'home' && !isset($_SESSION["logado"])) {
+    // Força o desvio para a página de login
+    $pagina = 'login';
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -40,44 +44,49 @@ $pagina = $_GET['page'] ?? 'login';
             require "../pages/users/login.php";
             break;
 
+        case 'authenticator':
+            require "../functions/authentication/authenticator.php";
+            break;
+
         case 'home':
             require "../pages/home/home.php";
             break;
 
-        case 'cad-user':
-            require "../pages/users/signup.php";
+        case 'users_signup':
+            require "../pages/users/users_signup.php";
             break;
 
-        case 'cad-model':
-            require "../pages/cad-model/cad-model.php";
+        case 'model_signup':
+            require "../pages/cad-model/model_signup.php";
             break;
 
-        case 'cad-vei':
-            require "../pages/cad-veiculo/cad-vei.php";
+        case 'signup-vehicles':
+            require "../pages/cad-veiculo/vehicle_signup.php";
             break;
 
-        case 'salvar':
-            require "../functions/salvar-user.php";
+        case 'save_users':
+            require "../functions/users/save_users.php";
             break;
 
-        case 'config-model':
-            require "../functions/config-model.php";
-            break;
 
         case 'config-cad':
             require "../functions/config-cad-user.php";
             break;
 
-        case 'config-user':
-            require "../functions/config-user.php";
+        case 'config-models':
+            require "../functions/config-models.php";
             break;
 
-        case 'config-vei':
-            require "../functions/config-vei.php";
+        case 'config-users':
+            require "../functions/config-users.php";
+            break;
+
+        case 'config-vehicle':
+            require "../functions/config-vehicle.php";
             break;
 
         case 'logout':
-            require "../functions/logout.php";
+            require "../functions/authentication/logout.php";
             break;
 
         default:
@@ -86,7 +95,7 @@ $pagina = $_GET['page'] ?? 'login';
 
     ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/vendor/js/bootstrap.bundle.min.js"></script>
 
 </body>
 

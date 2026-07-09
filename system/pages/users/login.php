@@ -37,25 +37,26 @@
                                 </div>
 
                                 <p class="switch-form" style="font-size: 0.9rem;">
-                                    Não tem uma conta? <a id="tnb-login-dropdown-signup-link" href="#" style="color: #0d6efd; text-decoration: none;">Cadastre-se</a>
+                                    Não tem uma conta? <a id="tnb-login-dropdown-signup-link" href="?page=users_signup" style="color: #0d6efd; text-decoration: none;">Cadastre-se</a>
                                 </p>
 
-                                <form id="loginFormElement">
+                                <form action="?page=authenticator" method="post" id="loginFormElement">
+                                    <input type="hidden" name="action" value="logar">
                                     <div class="form-group mb-3">
-                                        <input 
-                                            type="email" 
-                                            id="tnb-login-dropdown-email" 
-                                            autocomplete="email" 
-                                            spellcheck="false" 
-                                            autocapitalize="off" 
-                                            placeholder="Email" 
+                                        <input
+                                            type="text"
+                                            name="login" id=" tnb-login-dropdown-loginusrname"
+                                            autocomplete="email"
+                                            spellcheck="false"
+                                            autocapitalize="off"
+                                            placeholder="Nome de usuário"
                                             required>
                                     </div>
 
                                     <div class="form-group tnb-login-dropdown-password-container mb-3" style="position: relative;">
                                         <input
                                             type="password"
-                                            id="tnb-login-dropdown-password"
+                                            name="senha" id="tnb-login-dropdown-password"
                                             autocomplete="current-password"
                                             placeholder="Senha"
                                             required
@@ -81,11 +82,10 @@
 
     <div id="backgroundCarousel" class="carousel slide carousel-fade bg-carousel" data-bs-ride="carousel" data-bs-interval="10000" data-bs-pause="false">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../../assets/img/vehicle_lightoff_background.png" alt="Fundo 1">
+            <div class="carousel-item active bg-lightoff">
             </div>
-            <div class="carousel-item">
-                <img src="../../assets/img/vehicle_lightson_background.png" alt="Fundo 2">
+
+            <div class="carousel-item bg-lighton">
             </div>
         </div>
 

@@ -3,28 +3,30 @@
         <div class="col mt-5">
             <h1>Listar Usuários</h1>
             <?php
-            $sql = "SELECT * FROM usuario";
+            $sql = "SELECT * FROM usuarios"; // Cria uma consulta SQL para selecionar todos
 
             $res = $conn->query($sql);
 
-            $qtd = $res->num_rows;
+            $qtd = $res->num_rows; // Obtém o número de linhas retornadas pela consulta SQL
 
             if ($qtd > 0) {
-                print "<table class='table table-striped table-hover table-bordered'>";
+                print "<table class='table table-striped table-hover table-bordered'>"; // Cria uma tabela com classes do Bootstrap para estilização
                 print "<tr>";
                 print "<tr>";
                 print "<th>#</th>";
                 print "<th>Nome</th>";
+                print "<th>Login</th>";
                 print "<th>Email</th>";
-                print "<th>Data de Nascimento</th>";
+                print "<th>Status</th>";
                 print "<th>Acões</th>";
                 print "</tr>";
-                while ($row = $res->fetch_object()) {
+                while ($row = $res->fetch_object()) { // Itera sobre cada linha retornada pela consulta SQL
                     print "<tr>";
                     print "<td>" . $row->id . "</td>";
                     print "<td>" . $row->nome . "</td>";
+                    print "<td>" . $row->login . "</td>";
                     print "<td>" . $row->email . "</td>";
-                    print "<td>" . $row->data_nasc . "</td>";
+                    print "<td>" . $row->status . "</td>";
                     print "<td>
                         <button onclick=\"location.href='?aba=editar&id=" . $row->id . "'\" class='btn
                             btn-success'>Editar</button>
@@ -35,7 +37,7 @@
                 }
                 print "</table>";
             } else {
-                print "<p class='alert alert-danger'>Não encontrou resultados!</p>";
+                print "<p class='alert alert-danger'>Não encontrou resultados!</p>"; // Exibe uma mensagem de alerta caso não haja resultados
             }
             ?>
 
