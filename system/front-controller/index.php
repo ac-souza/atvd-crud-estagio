@@ -48,6 +48,10 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
             require "../functions/authentication/authenticator.php";
             break;
 
+        case 'logout':
+            require "../functions/authentication/logout.php";
+            break;
+
         case 'home':
             require "../pages/home/home.php";
             break;
@@ -64,6 +68,10 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
             require "../pages/vehicle/vehicle_signup.php";
             break;
 
+        case 'create_user':
+            require "../pages/create_users.php";
+            break;
+
         case 'save_users':
             require "../functions/users/save_users.php";
             break;
@@ -72,9 +80,8 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
             require "../functions/models/save_models.php";
             break;
 
-
-        case 'config-cad':
-            require "../functions/config-cad-user.php";
+        case 'save_vehicles':
+            require "../functions/vehicle/save_vehicles.php";
             break;
 
         case 'config-models':
@@ -86,12 +93,9 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
             break;
 
         case 'config-vehicle':
-            require "../functions/config-vehicle.php";
+            require "../functions/config_vehicle.php";
             break;
 
-        case 'logout':
-            require "../functions/authentication/logout.php";
-            break;
 
         default:
             echo "<h2>Página não encontrada.</h2>";

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image" href="../../assets/img/car_list.png">
   <link href="../../assets/vendor/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../assets/css/model-signup.css">
+  <link rel="stylesheet" href="../../assets/css/vehicle_signup.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
@@ -16,80 +16,71 @@
       overflow: hidden !important;
     }
   </style>
-
-  <?php
-// Garante a conexão com o banco de dados
-require_once "../functions/connection.php";
-
-// Busca os modelos cadastrados utilizando o MySQLi
-$sql_modelos = "SELECT id, nome_modelo FROM modelos ORDER BY nome_modelo ASC";
-$resultado = $conn->query($sql_modelos);
-
-$lista_modelos = [];
-if ($resultado && $resultado->num_rows > 0) {
-    // Transforma o resultado em um array associativo
-    while ($linha = $resultado->fetch_assoc()) {
-        $lista_modelos[] = $linha;
-    }
-}
-?>
   <div class="main-content">
     <div class="container mt-5">
       <div class="row justify-content-center">
         <div class="col-md-6">
           <div class="card p-4">
-            <h2 class="card-title">Cadastre seu veículo</h2>
+            <h2 class="card-title">Cadastre seu veículos</h2>
 
             <form action="?page=save_vehicles" method="post" id="signupFormElement">
               <input type="hidden" name="action" value="register">
               <div class="form-group">
-                  <label>Placa</label>
-                  <input
+                <label>Marca / Modelo</label>
+                <select name="modelo_id" id="tbn-signup-modelo" required>
+                  <option value="" disabled selected>Selecione a marca e o modelo</option>
+                  <?php
+                  $sqlModelos = "SELECT id, modelo, marca FROM modelos ORDER BY modelo, marca";
+                  $resModelos = $conn->query($sqlModelos);
+
+                  if ($resModelos && $resModelos->num_rows > 0) {
+                    while ($m = $resModelos->fetch_object()) {
+                      echo "<option value='{$m->id}'>{$m->marca} - {$m->modelo}</option>";
+                    }
+                  } else {
+                    echo "<option value='' disabled>Nenhum modelo cadastrado</option>";
+                  }
+                  ?>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Placa</label>
+                <input
                   type="text"
-                  name="placa" id="tnb-signup-plate"
-                  spellcheck="false"
+                  name="placa" id="tbn-signup-placa"
+                  spellcheck=" false"
                   autocapitalize="off"
-                  placeholder="Ex.: ABC-1B34 ou ABC-1234"
+                  placeholder="Ex.: ABC-1234 ou ABC-1B34"
                   required>
-                </div>
-                <div class="form-group">
+              </div>
+              <div class="form-group">
                 <label>Cor</label>
                 <input
                   type="text"
-                  name="cor" id="tnb-signup-color"
+                  name="cor" id="tbn-signup-cor"
                   spellcheck="false"
                   autocapitalize="off"
-                  placeholder="Ex.: Azul-Goiaba"
+                  placeholder="Ex.: Azul"
                   required>
               </div>
               <div class="form-group">
                 <label>Ano</label>
                 <input
                   type="number"
-                  name="ano" id="tnb-signup-year"
+                  name="ano" id="tbn-signup-ano"
                   spellcheck="false"
                   autocapitalize="off"
-                  placeholder="Ex.: 1970"
-                  required>
-              </div>
-              <div class="form-group">
-                <label>Modelo</label>
-                <input
-                  type="text"
-                  name="ano" id="tnb-signup-year"
-                  spellcheck="false"
-                  autocapitalize="off"
-                  placeholder="Ex.: 1970"
+                  placeholder="Ex.: 1990"
                   required>
               </div>
               <div id="signupStatus" class="status"></div>
               <button type="submit">
-                  <span class="button-text">Cadastrar Modelo</span>
-                  <span class="button-loader"></span>
-                </button>
-                <p class="switch-form" style="font-size: 0.9rem; margin-top: 10px;">
-                  <a id="tnb-login-dropdown-signup-link" href="?page=home" style="color: #fd0d0d; text-decoration: none;">Cancelar cadastro</a>
-                </p>
+                <span class="button-text">Cadastrar Veículo</span>
+                <span class="button-loader"></span>
+              </button>
+              <p class="switch-form" style="font-size: 0.9rem; margin-top: 10px;">
+                <a id="tnb-login-dropdown-signup-link" href="?page=home" style="color: #fd0d0d; text-decoration: none;">Cancelar cadastro</a>
+              </p>
             </form>
           </div>
         </div>
@@ -97,7 +88,7 @@ if ($resultado && $resultado->num_rows > 0) {
     </div>
   </div>
   <script src="../../assets/vendor/js/bootstrap.bundle.min.js"></script>
-  <script src="../../assets/js/model-signup.js"></script>
+  <script src="../../assets/js/vehicle-signup.js"></script>
 
 </body>
 

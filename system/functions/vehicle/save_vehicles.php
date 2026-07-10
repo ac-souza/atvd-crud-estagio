@@ -1,57 +1,22 @@
 <?php
-switch ($_REQUEST["acao"]) {
-    case 'cadastrar':
-        $nome = $_POST["nome"];
-        $email = $_POST["email"];
-        $senha = $_POST["senha"];
-        $data_nasc = $_POST["data_nasc"];
+var_dump($_POST);
+switch ($_REQUEST["action"]) {
+    case 'register':
+        $placa = $_POST["placa"];
+        $cor = $_POST["cor"];
+        $ano = $_POST["ano"];
+        $modelo_id = $_POST["modelo_id"];
 
-        $sql = "INSERT INTO usuario (nome, email, senha, data_nasc) VALUES ('$nome', '$email', '$senha', '$data_nasc')";
-
-        $res = $conn->query($sql);
-
-        if ($res == true) {
-            print "<script>alert('Usuário cadastrado com sucesso!');</script>";
-            print "<script>location.href='?aba=listar';</script>";
-        } else {
-            print "<script>alert('Não foi possível cadastrar o usuário!');</script>";
-            print "<script>location.href='?aba=listar';</script>";
-        }
-        break;
-    case 'editar':
-        $nome = $_POST["nome"];
-        $email = $_POST["email"];
-        $senha = $_POST["senha"];
-        $data_nasc = $_POST["data_nasc"];
-
-        $sql = "UPDATE usuario SET nome='{$nome}', 
-                    email='{$email}', 
-                    senha='{$senha}', 
-                    data_nasc='{$data_nasc}' 
-                WHERE id=" . $_REQUEST["id"];
+        $sql = "INSERT INTO veiculos (placa, cor, ano, modelo_id) VALUES ('$placa', '$cor', '$ano', '$modelo_id')";
 
         $res = $conn->query($sql);
 
         if ($res == true) {
-            print "<script>alert('Usuário editado com sucesso!');</script>";
-            print "<script>location.href='?aba=listar';</script>";
+            print "<script>alert('Veículo cadastrado com sucesso!');</script>";
+            print "<script>location.href='?page=home&aba=config_vehicle';</script>";
         } else {
-            print "<script>alert('Não foi possível editar o usuário!');</script>";
-            print "<script>location.href='?aba=listar';</script>";
-        }
-        break;
-    case 'excluir':
-
-        $sql = "DELETE FROM usuario WHERE id=" . $_REQUEST["id"];
-
-        $res = $conn->query($sql);
-
-        if ($res == true) {
-            print "<script>alert('Usuário excluído com sucesso!');</script>";
-            print "<script>location.href='?aba=listar';</script>";
-        } else {
-            print "<script>alert('Não foi possível excluir o usuário!');</script>";
-            print "<script>location.href='?aba=listar';</script>";
+            print "<script>alert('Não foi possível cadastrar o veículo!');</script>";
+            print "<script>location.href='?page=home&aba=config_vehicle';</script>";
         }
         break;
 }

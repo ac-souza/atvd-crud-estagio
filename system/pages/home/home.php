@@ -70,23 +70,23 @@
     <div class="main-content">
         <?php
         // Captura a aba atual da URL
-    $aba_atual = $_GET['aba'] ?? 'bem_vindo';
+        $aba_atual = $_GET['aba'] ?? 'bem_vindo';
 
-    // Define as configurações de cada botão baseado na aba, mantendo a rota da home e adicionando a tela correspondente
-    $botoes = [
-        'config_models'  => ['texto' => 'Cadastrar Modelo',  'url' => '?page=home&aba=model-signup',  'classe' => 'btn-primary'],
-        'config_users'   => ['texto' => 'Novo Usuário',      'url' => '?page=home&aba=user_signup',   'classe' => 'btn-success'],
-        'config_vehicle' => ['texto' => 'Adicionar Veículo', 'url' => '?page=home&aba=vehicle_signup', 'classe' => 'btn-warning']
-    ];
+        // Define as configurações de cada botão baseado na aba, mantendo a rota da home e adicionando a tela correspondente
+        $botoes = [
+            'config_models'  => ['texto' => 'Cadastrar novo modelo',  'url' => '?page=home&aba=model-signup',  'classe' => 'btn-dark'],
+            'config_users'   => ['texto' => 'Cadastrar novo usuário', 'url' => '?page=home&aba=user_signup',   'classe' => 'btn-dark'],
+            'config_vehicle' => ['texto' => 'Cadastrar novo veículo', 'url' => '?page=home&aba=vehicle_signup', 'classe' => 'btn-dark']
+        ];
 
-    // Se a aba atual estiver no array, renderiza o botão correspondente
-    if (array_key_exists($aba_atual, $botoes)) {
-        $btn = $botoes[$aba_atual];
-        echo '
+        // Se a aba atual estiver no array, renderiza o botão correspondente
+        if (array_key_exists($aba_atual, $botoes)) {
+            $btn = $botoes[$aba_atual];
+            echo '
         <div class="d-flex justify-content-end p-3">
             <button class="btn ' . $btn['classe'] . '" onclick="location.href=\'' . $btn['url'] . '\'">' . $btn['texto'] . '</button>
         </div>';
-    }
+        }
         ?>
         <div class="container mt-5">
             <div class="row justify-content-center">
@@ -132,7 +132,7 @@
                             </style>';
                             require "../functions/models/config_models.php";
                             break;
-                        
+
                         case 'model-signup':
                             echo '<style>
                             body, .fundo, .main-content { 
@@ -146,8 +146,14 @@
                         case 'create_user':
                             require "../pages/users/users_signup.php";
                             break;
-                            
+
                         case 'vehicle_signup':
+                            echo '<style>
+                            body, .fundo, .main-content { 
+                            background-color: #f8f9fa !important; 
+                            background-image: none !important; 
+                            }
+                            </style>';
                             require "../pages/vehicle/vehicle_signup.php";
                             break;
                         case 'bem_vindo':

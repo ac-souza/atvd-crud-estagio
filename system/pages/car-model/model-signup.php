@@ -29,12 +29,12 @@
                 <div class="form-group">
                   <label>Marca</label>
                   <input
-                  type="text"
-                  name="marca" id="tnb-signup-brand"
-                  spellcheck="false"
-                  autocapitalize="off"
-                  placeholder="Ex.: Volkswagen"
-                  required>
+                    type="text"
+                    name="marca" id="tnb-signup-brand"
+                    spellcheck="false"
+                    autocapitalize="off"
+                    placeholder="Ex.: Volkswagen"
+                    required>
                 </div>
                 <label>Modelo</label>
                 <input
@@ -47,12 +47,12 @@
               </div>
               <div id="signupStatus" class="status"></div>
               <button type="submit">
-                  <span class="button-text">Cadastrar Modelo</span>
-                  <span class="button-loader"></span>
-                </button>
-                <p class="switch-form" style="font-size: 0.9rem; margin-top: 10px;">
-                  <a id="tnb-login-dropdown-signup-link" href="?page=home" style="color: #fd0d0d; text-decoration: none;">Cancelar cadastro</a>
-                </p>
+                <span class="button-text">Cadastrar Modelo</span>
+                <span class="button-loader"></span>
+              </button>
+              <p class="switch-form" style="font-size: 0.9rem; margin-top: 10px;">
+                <a id="tnb-login-dropdown-signup-link" href="?page=home" style="color: #fd0d0d; text-decoration: none;">Cancelar cadastro</a>
+              </p>
             </form>
           </div>
         </div>
