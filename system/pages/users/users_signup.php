@@ -77,9 +77,6 @@
                   autocomplete="current-password"
                   placeholder="Senha"
                   required>
-                <button type="button" id="togglePassword" class="password-toggle-btn">
-                  <i class="material-icons" style="font-size: 20px; display: block;">visibility_off</i>
-                </button>
               </div>
               <p class="switch-form" style="font-size: 0.9rem; margin-top: 10px;">
                 Já possui uma conta? <a id="tnb-login-dropdown-signup-link" href="?page=login" style="color: #0d6efd; text-decoration: none;">Entrar</a>

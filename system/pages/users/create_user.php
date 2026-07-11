@@ -32,7 +32,7 @@
                                     name="nome"
                                     spellcheck="false"
                                     autocapitalize="off"
-                                    placeholder="Ex.: João"
+                                    placeholder="Ex.: Fulano"
                                     required>
                             </div>
                             <div class="form-group">
@@ -42,7 +42,7 @@
                                     name="login"
                                     spellcheck="false"
                                     autocapitalize="off"
-                                    placeholder="Ex.: Joãozinho do capa"
+                                    placeholder="Ex.: fulanozinho"
                                     required>
                             </div>
                             <div class="form-group">
@@ -52,7 +52,7 @@
                                     name="email"
                                     spellcheck="false"
                                     autocapitalize="off"
-                                    placeholder="Ex.: joaodocapa@teste.com"
+                                    placeholder="Ex.: fulano@teste.com"
                                     required>
                             </div>
                             <div class="form-group tnb-signup-password">
@@ -63,12 +63,9 @@
                                     autocomplete="current-password"
                                     placeholder="Senha"
                                     required>
-                                <button type="button" id="togglePassword" class="password-toggle-btn">
-                                    <i class="material-icons" style="font-size: 20px; display: block;">visibility_off</i>
-                                </button>
                             </div>
                             <button type="submit">
-                                <span class="button-text">Cadastrar Modelo</span>
+                                <span class="button-text">Cadastrar Usuário</span>
                                 <span class="button-loader"></span>
                             </button>
                             <p class="switch-form" style="font-size: 0.9rem; margin-top: 10px;">

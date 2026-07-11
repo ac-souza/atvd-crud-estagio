@@ -26,7 +26,7 @@
                             <input type="hidden" name="action" value="editar">
                             <input type="hidden" name="id" value="<?php echo $row->id; ?>">
                             <div class="form-group">
-                                <label>Novo nome</label>
+                                <label>Editar nome</label>
                                 <input
                                     type="text"
                                     name="nome"
@@ -34,11 +34,11 @@
                                     autocomplete="username"
                                     spellcheck="false"
                                     autocapitalize="off"
-                                    placeholder="Nome"
+                                    placeholder="Alterar Nome"
                                     required>
                             </div>
                             <div class="form-group">
-                                <label>Novo login</label>
+                                <label>Editar login</label>
                                 <input
                                     type="text"
                                     name="login"
@@ -46,20 +46,20 @@
                                     autocomplete="username"
                                     spellcheck="false"
                                     autocapitalize="off"
-                                    placeholder="Nome de usuário"
+                                    placeholder="Alterar nome de usuário"
                                     required>
                             </div>
 
                             <div class="form-group">
-                                <label>Novo email</label>
+                                <label>Editar email</label>
                                 <input
                                     type="email"
                                     name="email"
                                     value="<?php echo $row->email; ?>"
-                                    autocomplete=" email"
+                                    autocomplete="email"
                                     spellcheck="false"
                                     autocapitalize="off"
-                                    placeholder="Email"
+                                    placeholder="Alterar Email"
                                     required>
                             </div>
 
@@ -71,9 +71,6 @@
                                     autocomplete="current-password"
                                     placeholder="Senha"
                                     required>
-                                <button type="button" id="togglePassword" class="password-toggle-btn">
-                                    <i class="material-icons" style="font-size: 20px; display: block;">visibility_off</i>
-                                </button>
                             </div>
                             <div id="signupStatus" class="status"></div>
                             <button type="submit">

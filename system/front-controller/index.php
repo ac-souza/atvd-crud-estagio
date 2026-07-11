@@ -31,17 +31,6 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
             }
         }
     }
-    if (file_exists("../assets/js/$pagina.js")) {
-        echo '<script src="../assets/js/' . $pagina . '.js"></script>';
-    }
-
-    if ($pagina === 'home') {
-        foreach (['create-user', 'model-signup', 'vehicle-signup', 'edit_users'] as $adcional) {
-            if (file_exists("../assets/js/$adcional.js")) {
-                echo '<script src="../assets/js/' . $adcional . '.js"></script>';
-            }
-        }
-    }
     ?>
 </head>
 
@@ -130,10 +119,6 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
     ?>
 
     <script src="../assets/vendor/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/login.js"></script>
-    <script src="../assets/js/users_signup.js"></script>
-    <script src="../assets/js/edit_users.js"></script>
-    <script src="../assets/js/create_user.js"></script>
 
 </body>
 

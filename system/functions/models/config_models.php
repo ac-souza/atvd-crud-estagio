@@ -20,9 +20,9 @@ if ($qtd > 0) {
         print "<td>" . $row->marca . "</td>";
         print "<td>" . $row->modelo . "</td>";
         print "<td>
-                        <button onclick=\"location.href='?aba=editar&id=" . $row->id . "'\" class='btn
+                        <button onclick=\"location.href='?page=home&aba=edit_models&id=" . $row->id . "'\" class='btn
                             btn-success'>Editar</button>
-                        <button onclick=\"if(confirm('Tem certeza que deseja excluir este usuário?')){location.href='?aba=salvar&acao=excluir&id=" . $row->id . "';}else{false;}\" class='btn
+                        <button onclick=\"if(confirm('Tem certeza que deseja excluir este usuário?')){location.href='?page=save_models&action=excluir&id=" . $row->id . "';}else{false;}\" class='btn
                             btn-danger'>Excluir</button>
                         </td>";
         print "</tr>";

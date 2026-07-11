@@ -21,7 +21,7 @@
       <div class="row justify-content-center">
         <div class="col-md-6 d-flex justify-content-center">
           <div class="card p-4 d-inline-flex align-items-center">
-            <h2 class="card-title">Cadastre seu veículos</h2>
+            <h2 class="card-title">Cadastre seu veículo</h2>
 
             <form action="?page=save_vehicles" method="post" id="signupFormElement">
               <input type="hidden" name="action" value="register">

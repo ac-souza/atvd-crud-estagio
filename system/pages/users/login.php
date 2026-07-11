@@ -61,9 +61,6 @@
                                             placeholder="Senha"
                                             required
                                             style="padding-right: 40px;">
-                                        <button type="button" id="togglePassword" class="password-toggle-btn">
-                                            <i class="material-icons" style="font-size: 20px; display: block;">visibility_off</i>
-                                        </button>
                                     </div>
 
                                     <div id="loginStatus" class="status"></div>
