@@ -3,7 +3,7 @@ document.getElementById('togglePassword').addEventListener('mousedown', function
             event.preventDefault();
             event.stopPropagation();
 
-            const passwordInput = document.getElementById('tnb-signup-password');
+            const passwordInput = document.getElementById('tnb-login-dropdown-password');
             const icon = this.querySelector('i');
 
             if (passwordInput && icon) {

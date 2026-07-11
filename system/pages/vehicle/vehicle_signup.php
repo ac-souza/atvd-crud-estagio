@@ -19,8 +19,8 @@
   <div class="main-content">
     <div class="container mt-5">
       <div class="row justify-content-center">
-        <div class="col-md-6">
-          <div class="card p-4">
+        <div class="col-md-6 d-flex justify-content-center">
+          <div class="card p-4 d-inline-flex align-items-center">
             <h2 class="card-title">Cadastre seu veículos</h2>
 
             <form action="?page=save_vehicles" method="post" id="signupFormElement">
@@ -79,7 +79,7 @@
                 <span class="button-loader"></span>
               </button>
               <p class="switch-form" style="font-size: 0.9rem; margin-top: 10px;">
-                <a id="tnb-login-dropdown-signup-link" href="?page=home" style="color: #fd0d0d; text-decoration: none;">Cancelar cadastro</a>
+                <a id="tnb-login-dropdown-signup-link" href="?page=home&aba=config_vehicle" style="color: #fd0d0d; text-decoration: none;">Cancelar cadastro</a>
               </p>
             </form>
           </div>

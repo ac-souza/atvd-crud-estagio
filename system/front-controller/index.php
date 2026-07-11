@@ -25,9 +25,20 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
     }
 
     if ($pagina === 'home') {
-        foreach (['create-user', 'model-signup', 'vehicle-signup'] as $extra) {
+        foreach (['create-user', 'model-signup', 'vehicle-signup', 'edit_users'] as $extra) {
             if (file_exists("../assets/css/$extra.css")) {
                 echo '<link rel="stylesheet" href="../assets/css/' . $extra . '.css">';
+            }
+        }
+    }
+    if (file_exists("../assets/js/$pagina.js")) {
+        echo '<script src="../assets/js/' . $pagina . '.js"></script>';
+    }
+
+    if ($pagina === 'home') {
+        foreach (['create-user', 'model-signup', 'vehicle-signup', 'edit_users'] as $adcional) {
+            if (file_exists("../assets/js/$adcional.js")) {
+                echo '<script src="../assets/js/' . $adcional . '.js"></script>';
             }
         }
     }
@@ -69,7 +80,7 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
             break;
 
         case 'create_user':
-            require "../pages/create_users.php";
+            require "../pages/create_user.php";
             break;
 
         case 'save_users':
@@ -84,6 +95,10 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
             require "../functions/vehicle/save_vehicles.php";
             break;
 
+        case 'save_new_user':
+            require "../functions/users/save_new_user.php";
+            break;
+
         case 'config-models':
             require "../functions/config-models.php";
             break;
@@ -96,6 +111,17 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
             require "../functions/config_vehicle.php";
             break;
 
+        case 'edit_users':
+            require "../pages/users/edit_users.php";
+            break;
+
+        case 'edit_models':
+            require "../pages/car-model/edit_models.php";
+            break;
+
+        case 'edit_vehicles':
+            require "../pages/vehicle/edit_vehicles.php";
+            break;
 
         default:
             echo "<h2>Página não encontrada.</h2>";
@@ -104,6 +130,10 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
     ?>
 
     <script src="../assets/vendor/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/login.js"></script>
+    <script src="../assets/js/users_signup.js"></script>
+    <script src="../assets/js/edit_users.js"></script>
+    <script src="../assets/js/create_user.js"></script>
 
 </body>
 
