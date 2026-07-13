@@ -69,17 +69,15 @@
 
     <div class="main-content">
         <?php
-        // Captura a aba atual da URL
+
         $aba_atual = $_GET['aba'] ?? 'bem_vindo';
 
-        // Define as configurações de cada botão baseado na aba, mantendo a rota da home e adicionando a tela correspondente
         $botoes = [
             'config_models'  => ['texto' => 'Cadastrar novo modelo',  'url' => '?page=home&aba=model-signup',  'classe' => 'btn-dark'],
             'config_users'   => ['texto' => 'Cadastrar novo usuário', 'url' => '?page=home&aba=create_user',   'classe' => 'btn-dark'],
             'config_vehicle' => ['texto' => 'Cadastrar novo veículo', 'url' => '?page=home&aba=vehicle_signup', 'classe' => 'btn-dark']
         ];
 
-        // Se a aba atual estiver no array, renderiza o botão correspondente
         if (array_key_exists($aba_atual, $botoes)) {
             $btn = $botoes[$aba_atual];
             echo '
@@ -92,10 +90,8 @@
             <?php
             $aba = $_GET['aba'] ?? 'bem_vindo';
 
-            // Switch interno para o conteúdo da Home
             switch ($aba) {
                 case 'config_users':
-                    // Força a cor sólida e anula qualquer imagem de fundo anterior
                     echo '<style>
                             body, .fundo, .main-content { 
                             background-color: #f8f9fa !important; 
@@ -107,9 +103,6 @@
                     break;
 
                 case 'config_vehicle':
-                    // Exemplo caso queira colocar uma IMAGEM diferente para a tela de veículos
-                    // echo '<style>body { background-image: url("../../assets/img/fundo-veiculos.png") !important; background-size: cover; }</style>';
-
                     echo '<style>
                             body, .fundo, .main-content { 
                             background-color: #f8f9fa !important; 
@@ -121,7 +114,6 @@
                     break;
 
                 case 'config_models':
-                    // Fundo com cor sólida diferente
                     echo '<style>
                             body, .fundo, .main-content { 
                             background-color: #f8f9fa !important; 
@@ -194,9 +186,6 @@
 
                 case 'bem_vindo':
                 default:
-                    // MENSAGENS REMOVIDAS: 
-                    // Ocultamos os "echo" daqui. Agora a tela ficará totalmente limpa 
-                    // mantendo apenas o plano de fundo original da Home até o usuário clicar em algo.
                     break;
             }
             ?>

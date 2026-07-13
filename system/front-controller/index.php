@@ -4,7 +4,7 @@ require_once "../functions/connection.php";
 
 $pagina = $_GET['page'] ?? 'login';
 if ($pagina === 'home' && !isset($_SESSION["logado"])) {
-    // Força o desvio para a página de login
+
     $pagina = 'login';
 }
 ?>
@@ -17,7 +17,6 @@ if ($pagina === 'home' && !isset($_SESSION["logado"])) {
     <link rel="icon" type="image" href="../assets/img/car_list.png">
     <link rel="stylesheet" href="../assets/vendor/css/bootstrap.min.css">
     <title>SisVeículos</title>
-
 
     <?php
     if (file_exists("../assets/css/$pagina.css")) {

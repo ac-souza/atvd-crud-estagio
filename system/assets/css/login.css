@@ -2,14 +2,11 @@
     display: inline-block;
     width: 50px;
     height: 50px;
-    /* Defina a altura para a imagem aparecer corretamente */
     margin-right: 10px;
     background-image: url('../img/car_list.png');
-    /* Caminho relativo ao arquivo CSS */
     background-size: cover;
     background-position: center;
     border-radius: 50rem;
-    /* Equivalente à classe 'rounded-pill' do Bootstrap */
 }
 
 .navbar .dropdown-menu {
@@ -54,15 +51,12 @@
     height: auto;
 }
 
-/* MODIFICADO: Ajuste do Carrossel de fundo */
 .bg-carousel {
     position: fixed !important;
     top: 75px;
-    /* Empurra o carrossel para baixo da altura padrão da navbar */
     left: 0;
     width: 100vw;
     height: calc(100vh - 75px);
-    /* Ocupa a tela inteira menos o tamanho da navbar */
     z-index: -1;
     overflow: hidden;
 }
@@ -81,26 +75,21 @@
 .carousel-item {
     width: 100%;
     height: 100vh;
-    /* Define que o fundo ocupará a altura total da tela */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Fundo 1 - Luzes apagadas */
 .bg-lightoff {
-    /* Adicionamos um "../" extra caso o CSS esteja dentro de uma pasta /css/ */
     background-image: url("../img/vehicle_lightoff_background.png");
 }
 
-/* Fundo 2 - Luzes acesas */
 .bg-lighton {
     background-image: url("../img/vehicle_lightson_background.png");
 }
 
 body {
     background-color: #000 !important;
-    /* Caso a imagem suma na transição, fica preto no fundo */
     margin: 0;
     padding: 0;
 }

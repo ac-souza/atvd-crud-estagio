@@ -1,20 +1,20 @@
 <h1>Lista de Modelos</h1>
 <?php
-$sql = "SELECT * FROM modelos"; // Cria uma consulta SQL para selecionar todos
+$sql = "SELECT * FROM modelos";
 
 $res = $conn->query($sql);
 
-$qtd = $res->num_rows; // Obtém o número de linhas retornadas pela consulta SQL
+$qtd = $res->num_rows;
 
 if ($qtd > 0) {
-    print "<table class='table table-striped table-hover table-bordered'>"; // Cria uma tabela com classes do Bootstrap para estilização
+    print "<table class='table table-striped table-hover table-bordered'>";
     print "<tr>";
     print "<th>#</th>";
     print "<th>Modelo</th>";
     print "<th>Marca</th>";
     print "<th>Acões</th>";
     print "</tr>";
-    while ($row = $res->fetch_object()) { // Itera sobre cada linha retornada pela consulta SQL
+    while ($row = $res->fetch_object()) {
         print "<tr>";
         print "<td>" . $row->id . "</td>";
         print "<td>" . $row->marca . "</td>";
@@ -29,6 +29,6 @@ if ($qtd > 0) {
     }
     print "</table>";
 } else {
-    print "<p class='alert alert-danger'>Não encontrou resultados!</p>"; // Exibe uma mensagem de alerta caso não haja resultados
+    print "<p class='alert alert-danger'>Não encontrou resultados!</p>";
 }
 ?>

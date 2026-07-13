@@ -1,23 +1,21 @@
 .navbar-logo {
     display: inline-block;
     width: 50px;
-    height: 50px; /* Define a altura para a imagem aparecer */
+    height: 50px;
     margin-right: 10px;
-    border-radius: 50rem; /* Equivalente ao rounded-pill do Bootstrap */
-    
-    /* Configuração da imagem de fundo */
+    border-radius: 50rem;
     background-image: url("../img/car_list.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
+
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
     position: relative;
     background-color: #000;
-    /* Fundo preto caso a imagem demore a carregar */
     overflow: hidden;
 }
 
@@ -28,21 +26,16 @@ body {
     overflow: hidden;
 }
 
-/* 1. Tornamos a área de conteúdo o ponto de referência */
 .main-content {
     position: relative;
-    /* Ocupa a altura restante da tela tirando o tamanho médio da navbar (ex: 56px no Bootstrap) */
     min-height: calc(100vh - 56px);
     width: 100%;
     overflow: hidden;
-    /* Garante que o blur expandido não crie barras de rolagem */
 }
 
-/* 2. Aplicamos o fundo borrado APENAS nesta área abaixo da navbar */
 .main-content::before {
     content: "";
     position: absolute;
-    /* Mudamos de fixed para absolute */
     top: 0;
     left: 0;
     width: 100%;
@@ -51,13 +44,10 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
     z-index: -1;
     transform: scale(1.05);
-    /* Mantém a correção das bordas brancas do blur */
 }
 
-/* O card de conteúdo */
 .card {
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(5px);
@@ -65,12 +55,9 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Estilo base para todos os botões grandes */
 .menu-card {
     height: 120px;
-    /* Define a altura do botão grande */
     border-radius: 12px;
-    /* Cantos arredondados modernos */
     position: relative;
     overflow: hidden;
     background-size: cover;
@@ -80,36 +67,25 @@ body {
     z-index: 1;
 }
 
-/* Camada escura por cima da foto para dar leitura ao texto branco */
-/* Camada por cima da foto que gera o escurecimento e o BLUR */
 .menu-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    
-    /* Um fundo escuro sutil para ajudar no contraste */
     background: rgba(0, 0, 0, 0.4); 
-    
-    /* A mágica do Blur acontece aqui: */
     backdrop-filter: blur(4px); 
-    -webkit-backdrop-filter: blur(4px); /* Garante compatibilidade com Safari/iOS */
-    
+    -webkit-backdrop-filter: blur(4px);
     z-index: -1;
     transition: all 0.3s ease;
 }
 
-/* Efeito ao passar o mouse (Hover) */
 .menu-card:hover::before {
-    /* Reduz o desfoque e a escuridão no hover, revelando mais a foto */
     background: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(1px);
 }
 
-/* Ícones e Textos dentro do botão */
 .menu-card .material-icons {
     font-size: 2rem;
-    /* Ícone maior */
 }
 
 .menu-card span {
@@ -118,7 +94,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* --- ADICIONE SUAS IMAGENS AQUI --- */
 .btn-usuarios {
     background-image: url('../img/icon_card.png');
 }
@@ -132,16 +107,14 @@ body {
 }
 
 .sidebar-customizada {
-    background-color: #212529 !important; /* Substitua pelo Hexadecimal da cor que você quiser */
-    color: #ffffff; /* Garante que textos soltos fiquem brancos */
+    background-color: #212529 !important;
+    color: #ffffff;
 }
 
-/* Opcional: Se o cabeçalho da sua sidebar tiver uma linha separadora ou fechar escuro */
 .sidebar-customizada .offcanvas-header {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Opcional: Garante que o botão de fechar (X) fique visível no fundo escuro */
 .sidebar-customizada .btn-close {
     filter: invert(1) grayscale(1) brightness(2);
 }

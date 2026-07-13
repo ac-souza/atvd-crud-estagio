@@ -12,11 +12,9 @@ switch ($_REQUEST["action"]) {
 
         if ($res == true) {
             print "<script>alert('Usuário cadastrado com sucesso!');</script>";
-            // AQUI ESTÁ A MUDANÇA: Redirecionando para o login
             print "<script>location.href='?page=login';</script>";
         } else {
             print "<script>alert('Não foi possível cadastrar o usuário!');</script>";
-            // Se der erro, você pode mandar ele de volta pro formulário de cadastro
             print "<script>location.href='?page=users_signup';</script>";
         }
         break;
